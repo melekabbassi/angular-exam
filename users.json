@@ -1,0 +1,57 @@
+{
+    "Users": [
+    {
+        "lastName": "User1",
+        "firstName": "PrenomUser1",
+        "email": "user1@gmail.com",
+        "password": "123456","profile": "user",
+        "valide": "valide",
+        "id": 1
+    },
+    {
+        "lastName": "User2",
+        "firstName": "PrenomUser2",
+        "email": "user2@gmail.com",
+        "password": "321",
+        "profile": "admin",
+        "valide": "valide",
+        "id": 2
+    },
+    {
+        "lastName": "User3",
+        "firstName": "PrenomUser3",
+        "email": "user3@gmail.com",
+        "password": "123",
+        "profile": "user",
+        "valide": "non valide",
+        "id": 3
+    },
+    {
+        "lastName": "test",
+        "firstName": "Prenomtest",
+        "email": "user1@pi.tn",
+        "password": "111",
+        "profile": "user",
+        "valide": "valide",
+        "id": 5
+    },
+    {
+        "lastName": "test3",
+        "firstName": "Prenomtest3",
+        "email": "user3@pi.tn",
+        "password": "333",
+        "profile": "user",
+        "valide": "non valide",
+        "id": 7
+    },
+    {
+        "lastName": "test4",
+        "firstName": "Prenomtest4",
+        "email": "user4@pi.tn",
+        "password": "555",
+        "profile": "admin",
+        "valide": "valide",
+        "id": 8
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+<div class="flex flex-col items-center justify-center mt-10">
+    <img src="assets/images/tennis.png" alt="Tennis Logo" class="w-32 mb-8">
+    <div class="w-full max-w-md">
+        <form  (ngSubmit)="login()" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> <!-- [formGroup]="loginForm" -->
+            <div class="mb-4">
+                <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
+                <input type="email" id="email" formControlName="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your email address">
+            </div>
+            <div class="mb-6">
+                <label for="password" class="block text-gray-700 font-bold mb-2">Password</label>
+                <input type="password" id="password" formControlName="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your password">
+            </div>
+            <div class="flex items-center justify-between">
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Log In</button>
+                <a routerLink="/register" class="text-blue-500 hover:text-blue-700">Create an account</a>
+            </div>
+        </form>
+    </div>
+</div>
+  

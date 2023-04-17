@@ -1,0 +1,28 @@
+<table class="table-auto w-full border-collapse border border-gray-400">
+    <thead>
+      <tr class="bg-gray-200">
+        <th class="px-4 py-2">#Id</th>
+        <th class="px-4 py-2">firstName</th>
+        <th class="px-4 py-2">lastName</th>
+        <th class="px-4 py-2">email</th>
+        <th class="px-4 py-2">password</th>
+        <th class="px-4 py-2">profile</th>
+        <th class="px-4 py-2">valide</th>
+        <th class="px-4 py-2"></th>
+        <th class="px-4 py-2"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let eachCmd of array" class="border border-gray-400">
+        <td class="px-4 py-2">{{eachCmd.id}}</td>
+        <td class="px-4 py-2">{{eachCmd.firstName}}</td>
+        <td class="px-4 py-2">{{eachCmd.lastName}}</td>
+        <td class="px-4 py-2">{{eachCmd.email}}</td>
+        <td class="px-4 py-2">{{eachCmd.password}}</td>
+        <td class="px-4 py-2">{{eachCmd.profile}}</td>
+        <td class="px-4 py-2">{{eachCmd.validated}}</td>
+        <td class="px-4 py-2"><button (click)="editUser(eachCmd.id)" class="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded">update</button></td>
+        <td class="px-4 py-2"><button (click)="deleteUser(eachCmd.id)" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded">delete</button></td>
+      </tr>
+    </tbody>
+  </table>
