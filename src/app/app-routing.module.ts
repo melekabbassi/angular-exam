@@ -7,13 +7,12 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginComponent},
+  { path: 'home', component: HomeComponent },
   { path: 'reservation', component: ReservationComponent },
   { path: 'validation', component: ValidationComponent },
-  { path: 'signin', component: LoginComponent },
   { path: 'signup', component: RegisterComponent },
-  { path: 'login', redirectTo: 'signin' },
-  { path: 'register', redirectTo: 'signup' },
+  { path: 'signin', redirectTo: '' },
   { path: '**', redirectTo: '' }
 ];
 
@@ -22,3 +21,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+ 

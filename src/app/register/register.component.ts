@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
         response => {
           alert('Registration successful');
           this.registerForm.reset();
-          this.router.navigate(['/login']);
+          this.router.navigate(['/signin']);
         }, error => {
           alert('Registration failed');
           console.log(error);
