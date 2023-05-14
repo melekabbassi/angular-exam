@@ -6,25 +6,25 @@ import { ValidationComponent } from './validation/validation.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
-// const routes: Routes = [
-//   { path: '', component: LoginComponent},
-//   { path: 'home', component: HomeComponent },
-//   { path: 'reservation', component: ReservationComponent },
-//   { path: 'validation', component: ValidationComponent },
-//   { path: 'signup', component: RegisterComponent },
-//   { path: 'signin', redirectTo: '' },
-//   { path: '**', redirectTo: '' }
-// ];
-
 const routes: Routes = [
-  { path: 'signin', component: LoginComponent},
+  { path: '', component: LoginComponent},
   { path: 'home', component: HomeComponent },
   { path: 'reservation', component: ReservationComponent },
   { path: 'validation', component: ValidationComponent },
   { path: 'signup', component: RegisterComponent },
-  { path: '', redirectTo: 'signin', pathMatch: 'full' },
-  { path: '**', redirectTo: 'signin' }
-]
+  { path: 'signin', redirectTo: '' },
+  { path: '**', redirectTo: '' }
+];
+
+// const routes: Routes = [
+//   { path: 'signin', component: LoginComponent},
+//   { path: 'home', component: HomeComponent },
+//   { path: 'reservation', component: ReservationComponent },
+//   { path: 'validation', component: ValidationComponent },
+//   { path: 'signup', component: RegisterComponent },
+//   { path: '', redirectTo: 'signin', pathMatch: 'full' },
+//   { path: '**', redirectTo: 'signin' }
+// ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
