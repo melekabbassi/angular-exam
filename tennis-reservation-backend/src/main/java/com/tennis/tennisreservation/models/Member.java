@@ -2,9 +2,18 @@ package com.tennis.tennisreservation.models;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.PrimaryKeyJoinColumn;
+
+@Entity
+@PrimaryKeyJoinColumn(name = "id")
 public class Member extends User {
 
+    @Column(name="join_date")
     private Date joinDate;
+    
+    @Column(name="level")
     private String level;
 
     public Member(int id, String lastName, String firstName, String email, String password, String status, Date joinDate, String level) {

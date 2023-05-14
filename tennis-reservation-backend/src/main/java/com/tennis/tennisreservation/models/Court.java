@@ -1,8 +1,19 @@
 package com.tennis.tennisreservation.models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Court {
-    
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private int id;
+
+    @Column(name="is_available")
     private Boolean isAvailable;
 
     public Court(int id, Boolean isAvailable) {

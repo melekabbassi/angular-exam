@@ -1,9 +1,25 @@
 package com.tennis.tennisreservation.models;
 
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.PrimaryKeyJoinColumn;
+
 public class Service {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
+    @PrimaryKeyJoinColumn
     private int id;
+
+    @Column(name="name")
     private String name;
+    
+    @Column(name="description")
     private String description;
+    
+    @Column(name="price")
     private double price;
 
     public Service(int id, String name, String description, double price) {

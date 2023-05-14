@@ -3,32 +3,67 @@ package com.tennis.tennisreservation.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Reservation {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private int id;
-    private int userId;
-    private int courtId;
-    private String type;
-    private Date date;
-    private int hour;
-    private int duration;
-    private List<String> equipment;
-    private List<String> services;
 
-    public Reservation(int id, int userId, int courtId, String type, Date date, int hour, int duration, List<String> equipment, List<String> services) {
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+    
+    @ManyToOne
+    @JoinColumn(name = "court_id")
+    private Court court;
+
+    @Column(name="type")
+    private String type;
+
+    @Column(name="date")
+    private Date date;
+    
+    @Column(name="hour")
+    private int hour;
+    
+    @Column(name="duration")
+    private int duration;
+    
+    @ManyToMany
+    private List<Equipment> equipment;
+    
+    @ManyToMany
+    private List<Service> services;
+
+    public Reservation(int id, User user, Court court, String type, Date date, int hour, int duration,
+            List<Equipment> equipment, List<Service> services) {
         this.id = id;
-        this.userId = userId;
-        this.courtId = courtId;
+        this.user = user;
+        this.court = court;
+        this.type = type;
         this.date = date;
         this.hour = hour;
         this.duration = duration;
         this.equipment = equipment;
         this.services = services;
     }
-
-    public Reservation(int userId, int courtId, String type, Date date, int hour, int duration, List<String> equipment, List<String> services) {
-        this.userId = userId;
-        this.courtId = courtId;
+    
+    public Reservation(User user, Court court, String type, Date date, int hour, int duration,
+            List<Equipment> equipment, List<Service> services) {
+        this.user = user;
+        this.court = court;
+        this.type = type;
         this.date = date;
         this.hour = hour;
         this.duration = duration;
@@ -46,20 +81,20 @@ public class Reservation {
         this.id = id;
     }
 
-    public int getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getCourtId() {
-        return courtId;
+    public Court getCourt() {
+        return court;
     }
 
-    public void setCourtId(int courtId) {
-        this.courtId = courtId;
+    public void setCourt(Court court) {
+        this.court = court;
     }
 
     public String getType() {
@@ -94,19 +129,19 @@ public class Reservation {
         this.duration = duration;
     }
 
-    public List<String> getEquipment() {
+    public List<Equipment> getEquipment() {
         return equipment;
     }
 
-    public void setEquipment(List<String> equipment) {
+    public void setEquipment(List<Equipment> equipment) {
         this.equipment = equipment;
     }
 
-    public List<String> getServices() {
+    public List<Service> getServices() {
         return services;
     }
 
-    public void setServices(List<String> services) {
+    public void setServices(List<Service> services) {
         this.services = services;
     }
     
