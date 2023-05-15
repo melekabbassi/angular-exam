@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../services/authentication.service';
+import { Users }  from '../interfaces/users';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +15,7 @@ export class LoginComponent implements OnInit {
 
   public loginForm!: FormGroup
 
-  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthenticationService) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -30,8 +33,9 @@ export class LoginComponent implements OnInit {
           });
           if (user) {
             alert('Login successful');
+            this.authService.setCurrentUser(user);
             this.loginForm.reset();
-            this.router.navigate(['/reservation']);
+            this.router.navigate(['/dashboard']);
           } else {
             alert('Login failed');
           }
