@@ -1,9 +1,0 @@
-com/tennis/tennisreservation/models/Member.class
-com/tennis/tennisreservation/models/Service.class
-com/tennis/tennisreservation/models/Court.class
-com/tennis/tennisreservation/models/Equipment.class
-com/tennis/tennisreservation/models/Reservation.class
-com/tennis/tennisreservation/models/User.class
-com/tennis/tennisreservation/ServletInitializer.class
-com/tennis/tennisreservation/models/Admin.class
-com/tennis/tennisreservation/TennisReservationApplication.class
