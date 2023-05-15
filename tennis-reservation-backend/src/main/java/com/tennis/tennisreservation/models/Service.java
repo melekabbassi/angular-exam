@@ -1,11 +1,24 @@
 package com.tennis.tennisreservation.models;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
+@Table(name="services")
 public class Service {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,21 +34,6 @@ public class Service {
     
     @Column(name="price")
     private double price;
-
-    public Service(int id, String name, String description, double price) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
-
-    public Service(String name, String description, double price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
-
-    public Service() {}
 
     public int getId() {
         return id;

@@ -5,8 +5,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Table(name="equipments")
 public class Equipment {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
@@ -21,21 +32,6 @@ public class Equipment {
     
     @Column(name="price")
     private double price;
-
-    public Equipment(int id, String type, Boolean isAvailable, double price) {
-        this.id = id;
-        this.type = type;
-        this.isAvailable = isAvailable;
-        this.price = price;
-    }
-
-    public Equipment(String type, Boolean isAvailable, double price) {
-        this.type = type;
-        this.isAvailable = isAvailable;
-        this.price = price;
-    }
-
-    public Equipment() {}
 
     public int getId() {
         return id;

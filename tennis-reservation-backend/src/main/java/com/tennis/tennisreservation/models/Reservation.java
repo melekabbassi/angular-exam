@@ -3,16 +3,29 @@ package com.tennis.tennisreservation.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
+@Table(name="reservations")
 public class Reservation {
 
     @Id
@@ -40,38 +53,21 @@ public class Reservation {
     @Column(name="duration")
     private int duration;
     
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.MERGE)
+    @JoinTable(
+        name = "reservation_equipment",
+        joinColumns = @JoinColumn(name = "reservation_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "equipment_id", referencedColumnName = "id")
+    )
     private List<Equipment> equipment;
     
     @ManyToMany
+    @JoinTable(
+        name = "reservation_service",
+        joinColumns = @JoinColumn(name = "reservation_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "service_id", referencedColumnName = "id")
+    )
     private List<Service> services;
-
-    public Reservation(int id, User user, Court court, String type, Date date, int hour, int duration,
-            List<Equipment> equipment, List<Service> services) {
-        this.id = id;
-        this.user = user;
-        this.court = court;
-        this.type = type;
-        this.date = date;
-        this.hour = hour;
-        this.duration = duration;
-        this.equipment = equipment;
-        this.services = services;
-    }
-    
-    public Reservation(User user, Court court, String type, Date date, int hour, int duration,
-            List<Equipment> equipment, List<Service> services) {
-        this.user = user;
-        this.court = court;
-        this.type = type;
-        this.date = date;
-        this.hour = hour;
-        this.duration = duration;
-        this.equipment = equipment;
-        this.services = services;
-    }
-
-    public Reservation() {}
 
     public int getId() {
         return id;
