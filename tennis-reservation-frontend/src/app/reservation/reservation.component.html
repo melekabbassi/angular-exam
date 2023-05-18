@@ -1,3 +1,5 @@
+<app-headerdashboard></app-headerdashboard>
+<div><br></div>
 <div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
     <h2 class="text-2xl font-semibold mb-6 text-gray-700">Make a Reservation</h2>
     <form class="space-y-8" (ngSubmit)="onSubmit()" #reservationForm="ngForm" [formGroup]="reservationFormGroup">
@@ -23,3 +25,10 @@
         </div>
     </form>
 </div>
+<footer class="fixed-bottom text-gray-700 body-font">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col mt-72 h-full">
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 Tennis Club —
+            <a href="#" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Tennis Organisation</a>
+        </p>
+    </div>
+</footer>

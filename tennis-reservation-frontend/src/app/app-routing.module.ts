@@ -6,6 +6,8 @@ import { ValidationComponent } from './validation/validation.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { GroundsComponent } from './grounds/grounds.component';
+import { ServicesTennisComponent } from './services-tennis/services-tennis.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -15,6 +17,8 @@ const routes: Routes = [
   { path: 'signup', component: RegisterComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'signin', redirectTo: '' },
+  {path: 'grounds', component: GroundsComponent},
+  {path: 'services-tennis', component: ServicesTennisComponent},
   { path: '**', redirectTo: '' }
 ];
 

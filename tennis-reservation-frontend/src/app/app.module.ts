@@ -12,6 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeaderdashboardComponent } from './headerdashboard/headerdashboard.component';
+import { GroundsComponent } from './grounds/grounds.component';
+import { ServicesTennisComponent } from './services-tennis/services-tennis.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     RegisterComponent,
     FooterComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeaderdashboardComponent,
+    GroundsComponent,
+    ServicesTennisComponent
   ],
   imports: [
     BrowserModule,
