@@ -1,79 +1,64 @@
 package com.tennis.tennisreservation.models;
 
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 
-import org.hibernate.validator.constraints.Length;
-
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 @Table(name="users")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name = "id", updatable = false, nullable = false)
-    @PrimaryKeyJoinColumn
-    private int id;
 
-    @Column(name = "last_name")
-    @Length(min=5, message="*Your last name must have at least 5 characters")
-    @NotEmpty(message = "*Please provide your last name")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name="last_name")
     private String lastName;
-    
-    @Column(name = "first_name")
-    @Length(min=5, message="*Your first name must have at least 5 characters")
-    @NotEmpty(message = "*Please provide your first name")
+
+    @Column(name="first_name")
     private String firstName;
-    
-    @Column(name="email", unique = true)
-    @Email(message = "*Please provide a valid Email")
-    @NotEmpty(message = "*Please provide an email")
+
+    @Column(name="email", nullable = false, unique = true)
     private String email;
-    
-    @Column(name="password")
-    @NotEmpty(message = "*Please provide your password")
+
+    @Column(name="password", nullable = false)
     private String password;
     
     @Column(name="status")
     private String status;
 
-    @Column(name="isActive")
-    private Boolean isActive;
+    @Column(name="is_active")
+    private boolean isActive;
 
-    @ManyToMany(cascade = CascadeType.MERGE)
-    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name="user_id") , inverseJoinColumns = @JoinColumn(name="role_id"))
-    private Collection<Role> roles;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name="user_roles",
+        joinColumns = @JoinColumn(name="user_id"),
+        inverseJoinColumns = @JoinColumn(name="role_id")    
+    )
+    private Set<Role> roles = new HashSet<>();
 
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
+    public Long getId() {
+        return id;
     }
 
-    public int getId() { return id; }
-
-    public void setId(int id) { this.id = id; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getLastName() {
         return lastName;
@@ -115,20 +100,20 @@ public class User {
         this.status = status;
     }
 
-    public Boolean getIsActive() {
+    public boolean getIsActive() {
         return isActive;
     }
 
-    public void setIsActive(Boolean isActive) {
+    public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
 
-    public Collection<Role> getRole() {
+    public Set<Role> getRoles() {
         return roles;
     }
 
-    public void setRole(Collection<Role> roles) {
+    public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
-
+    
 }
