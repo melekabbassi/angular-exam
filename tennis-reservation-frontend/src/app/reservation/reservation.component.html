@@ -1,33 +1,25 @@
-<div class="max-w-xl mx-auto">
-    <h2 class="text-xl font-medium mb-4">Make a Reservation</h2>
-    <form class="space-y-6" (ngSubmit)="onSubmit()" #isFormValid="ngForm" [formGroup]="reservationFormGroup">
+<div class="max-w-xl mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold mb-6 text-gray-700">Make a Reservation</h2>
+    <form class="space-y-8" (ngSubmit)="onSubmit()" #reservationForm="ngForm" [formGroup]="reservationFormGroup">
         <div>
-            <label class="block mb-2 font-medium" for="firstName">First Name</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="text" id="firstName" name="firstName" [(ngModel)]="reservationFormGroup.value.firstName" required>
+            <label class="block mb-2 text-sm font-medium text-gray-600" for="type">Reservation Type</label>
+            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="text" id="type" name="type" [(ngModel)]="reservationFormGroup.value.type" required>
         </div>
         <div>
-            <label class="block mb-2 font-medium" for="lastName">Last Name</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="text" id="lastName" name="lastName" [(ngModel)]="reservationFormGroup.value.lastName" required>
+            <label class="block mb-2 text-sm font-medium text-gray-600" for="date">Date</label>
+            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="date" id="date" name="date" [(ngModel)]="reservationFormGroup.value.date" required>
         </div>
         <div>
-            <label class="block mb-2 font-medium" for="email">Email</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="email" id="email" name="email" [(ngModel)]="reservationFormGroup.value.email" required>
+            <label class="block mb-2 text-sm font-medium text-gray-600" for="hour">Hour</label>
+            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="number" id="hour" name="hour" [(ngModel)]="reservationFormGroup.value.hour" required>
         </div>
         <div>
-            <label class="block mb-2 font-medium" for="password">Password</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="password" id="password" name="password" [(ngModel)]="reservationFormGroup.value.password" required>
+            <label class="block mb-2 text-sm font-medium text-gray-600" for="duration">Duration</label>
+            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="number" id="duration" name="duration" [(ngModel)]="reservationFormGroup.value.duration" required>
         </div>
+        <!-- You might need to implement a custom control for equipment and services or use a dropdown if it's a predefined set -->
         <div>
-            <label class="block mb-2 font-medium" for="profile">Profile</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="text" id="profile" name="profile" [(ngModel)]="reservationFormGroup.value.profile" required>
-        </div>
-        <div>
-            <label class="block mb-2 font-medium" for="valid">Valid</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="checkbox" id="valid" name="valid" [(ngModel)]="reservationFormGroup.value.validated" required>
-        </div>
-        <div>
-            <button class="px-4 py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition-colors duration-300" type="submit">Submit</button>
+            <button class="w-full px-4 py-2 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 transition-colors duration-300" type="submit">Submit Reservation</button>
         </div>
     </form>
 </div>
-  
