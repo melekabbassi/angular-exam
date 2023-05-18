@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @Profile("mariadb")
-@EnableJpaRepositories({"com.tennis.tennisreservation.repositories"})
+@EnableJpaRepositories(basePackages = "com.tennis.tennisreservation.repositories")
 @EnableTransactionManagement
 public class MariaDBConfig {
     

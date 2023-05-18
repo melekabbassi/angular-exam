@@ -6,6 +6,4 @@ import org.springframework.stereotype.Repository;
 import com.tennis.tennisreservation.models.Role;
 
 @Repository
-public interface IRoleRepo extends JpaRepository<Role, Integer> {
-    Role findByRole(String role);
-}
+public interface IRoleRepo extends JpaRepository<Role, Long> { }
