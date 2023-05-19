@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { GroundsComponent } from './grounds/grounds.component';
 import { ServicesTennisComponent } from './services-tennis/services-tennis.component';
+import { MaterialsComponent } from './materials/materials.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'signin', redirectTo: '' },
   {path: 'grounds', component: GroundsComponent},
   {path: 'services-tennis', component: ServicesTennisComponent},
+  { path: 'materials', component: MaterialsComponent },
   { path: '**', redirectTo: '' }
 ];
 

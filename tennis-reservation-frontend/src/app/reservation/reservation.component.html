@@ -5,19 +5,19 @@
     <form class="space-y-8" (ngSubmit)="onSubmit()" #reservationForm="ngForm" [formGroup]="reservationFormGroup">
         <div>
             <label class="block mb-2 text-sm font-medium text-gray-600" for="type">Reservation Type</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="text" id="type" name="type" [(ngModel)]="reservationFormGroup.value.type" required>
+            <input class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="text" id="type" name="type" [(ngModel)]="reservationFormGroup.value.type" required>
         </div>
         <div>
             <label class="block mb-2 text-sm font-medium text-gray-600" for="date">Date</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="date" id="date" name="date" [(ngModel)]="reservationFormGroup.value.date" required>
+            <input class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="date" id="date" name="date" [(ngModel)]="reservationFormGroup.value.date" required>
         </div>
         <div>
             <label class="block mb-2 text-sm font-medium text-gray-600" for="hour">Hour</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="number" id="hour" name="hour" [(ngModel)]="reservationFormGroup.value.hour" required>
+            <input class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="number" id="hour" name="hour" [(ngModel)]="reservationFormGroup.value.hour" required>
         </div>
         <div>
             <label class="block mb-2 text-sm font-medium text-gray-600" for="duration">Duration</label>
-            <input class="w-full px-4 py-2 rounded-lg border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="number" id="duration" name="duration" [(ngModel)]="reservationFormGroup.value.duration" required>
+            <input class="w-full px-4 py-2 rounded-lg border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200" type="number" id="duration" name="duration" [(ngModel)]="reservationFormGroup.value.duration" required>
         </div>
         <!-- You might need to implement a custom control for equipment and services or use a dropdown if it's a predefined set -->
         <div>

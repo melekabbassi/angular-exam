@@ -1,0 +1,44 @@
+<app-headerdashboard></app-headerdashboard>
+<div><br></div>
+<div class="py-16 bg-gray-800 text-white">
+    <div class="container mx-auto text-center">
+      <h1 class="text-6xl font-bold">MATERIALS</h1>
+    </div>
+  </div>
+  <div><br></div>
+  
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6" *ngIf="materials">
+    <div *ngFor="let material of materials" class="relative bg-white py-6 px-6 rounded-3xl w-full my-4 shadow-xl">
+      <div class="mt-8">
+        <div class="flex space-x-2">
+          <img [src]="material.image" alt="{{material.name}}" class="h-24 w-24 object-cover rounded-full">
+        </div>
+        <div class="mt-4 text-gray-600 text-lg font-semibold pb-2">
+          {{material.name}}
+        </div>
+        <div class="mt-2 text-gray-500 text-xs">{{material.type}}</div>
+        <div class="mt-4">
+          <div class="mt-1 text-gray-600 text-lg">{{material.price}}</div>
+        </div>
+        <div class="mt-4" *ngIf="!material.showDescription">
+          <button class="mt-1 text-white text-sm bg-blue-500 px-6 py-2 rounded-lg hover:bg-blue-700" 
+                  (click)="toggleDescription(material)">
+            Learn more
+          </button>
+        </div>
+        <div class="mt-4" *ngIf="material.showDescription">
+          <div class="mt-1 text-gray-600 text-lg">{{material.description}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+<footer class="fixed-bottom text-gray-700 body-font">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col mt-72 h-full">
+        <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2023 Tennis Club —
+            <a href="#" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Tennis Organisation</a>
+        </p>
+    </div>
+</footer>

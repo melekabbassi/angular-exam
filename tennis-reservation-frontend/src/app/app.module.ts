@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderdashboardComponent } from './headerdashboard/headerdashboard.component';
 import { GroundsComponent } from './grounds/grounds.component';
 import { ServicesTennisComponent } from './services-tennis/services-tennis.component';
+import { MaterialsComponent } from './materials/materials.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ServicesTennisComponent } from './services-tennis/services-tennis.compo
     DashboardComponent,
     HeaderdashboardComponent,
     GroundsComponent,
-    ServicesTennisComponent
+    ServicesTennisComponent,
+    MaterialsComponent
   ],
   imports: [
     BrowserModule,
