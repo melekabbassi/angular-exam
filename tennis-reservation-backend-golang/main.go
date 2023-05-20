@@ -50,5 +50,26 @@ func generateApp() *fiber.App {
 	userGroup.Put("/:id", handlers.UpdateUser)
 	userGroup.Delete("/:id", handlers.DeleteUser)
 
+	courtGroup := app.Group("/courts")
+	courtGroup.Get("/", handlers.GetCourts)
+	courtGroup.Get("/:id", handlers.GetCourt)
+	courtGroup.Post("/", handlers.CreateCourt)
+	courtGroup.Put("/:id", handlers.UpdateCourt)
+	courtGroup.Delete("/:id", handlers.DeleteCourt)
+
+	equipmentGroup := app.Group("/equipments")
+	equipmentGroup.Get("/", handlers.GetEquipments)
+	equipmentGroup.Get("/:id", handlers.GetEquipment)
+	equipmentGroup.Post("/", handlers.CreateEquipment)
+	equipmentGroup.Put("/:id", handlers.UpdateEquipment)
+	equipmentGroup.Delete("/:id", handlers.DeleteEquipment)
+
+	serviceGroup := app.Group("/services")
+	serviceGroup.Get("/", handlers.GetServices)
+	serviceGroup.Get("/:id", handlers.GetService)
+	serviceGroup.Post("/", handlers.CreateService)
+	serviceGroup.Put("/:id", handlers.UpdateService)
+	serviceGroup.Delete("/:id", handlers.DeleteService)
+
 	return app
 }
