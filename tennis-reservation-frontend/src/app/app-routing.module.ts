@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { GroundsComponent } from './grounds/grounds.component';
 import { ServicesTennisComponent } from './services-tennis/services-tennis.component';
 import { MaterialsComponent } from './materials/materials.component';
+import { ReservationsListComponent } from './reservations-list/reservations-list.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'grounds', component: GroundsComponent},
   {path: 'services-tennis', component: ServicesTennisComponent},
   { path: 'materials', component: MaterialsComponent },
+  { path: 'reservations-list', component: ReservationsListComponent },
   { path: '**', redirectTo: '' }
 ];
 

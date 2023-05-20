@@ -1,0 +1,17 @@
+[
+    {
+      "id": 1,
+      "type": "single",
+      "date": "2023-06-12",
+      "hour": 16,
+      "duration": 2
+    },
+    {
+      "id": 2,
+      "type": "double",
+      "date": "2023-06-13",
+      "hour": 10,
+      "duration": 3
+    }
+  ]
+  

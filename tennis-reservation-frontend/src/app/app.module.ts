@@ -16,6 +16,7 @@ import { HeaderdashboardComponent } from './headerdashboard/headerdashboard.comp
 import { GroundsComponent } from './grounds/grounds.component';
 import { ServicesTennisComponent } from './services-tennis/services-tennis.component';
 import { MaterialsComponent } from './materials/materials.component';
+import { ReservationsListComponent } from './reservations-list/reservations-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { MaterialsComponent } from './materials/materials.component';
     HeaderdashboardComponent,
     GroundsComponent,
     ServicesTennisComponent,
-    MaterialsComponent
+    MaterialsComponent,
+    ReservationsListComponent
   ],
   imports: [
     BrowserModule,
