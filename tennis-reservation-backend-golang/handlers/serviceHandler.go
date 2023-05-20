@@ -60,6 +60,36 @@ func GetService(c *fiber.Ctx) error {
 	return c.JSON(service)
 }
 
+// // POST /services
+// func CreateService(c *fiber.Ctx) error {
+// 	db := database.OpenDB()
+
+// 	service := ServiceDTO{}
+
+// 	if err := c.BodyParser(&service); err != nil {
+// 		return c.Status(500).SendString(err.Error())
+// 	}
+
+// 	// if the table is empty, insert without checking for id
+// 	var lastID int
+// 	err := db.QueryRow("SELECT MAX(id) FROM services").Scan(&lastID)
+// 	if err != nil {
+// 		_, err := db.Exec("INSERT INTO services (name, description, price) VALUES (?, ?, ?)", service.Name, service.Description, service.Price)
+// 		if err != nil {
+// 			return c.Status(500).SendString("Error creating service")
+// 		}
+// 	} else {
+// 		_, err := db.Exec("INSERT INTO services (id, name, description, price) VALUES (?, ?, ?, ?)", lastID+1, service.Name, service.Description, service.Price)
+// 		if err != nil {
+// 			return c.Status(500).SendString("Error creating service")
+// 		}
+// 	}
+// 	database.CloseDB(db)
+// 	c.Set("Content-Type", "application/json")
+
+// 	return c.JSON(service)
+// }
+
 // POST /services
 func CreateService(c *fiber.Ctx) error {
 	db := database.OpenDB()
@@ -70,10 +100,17 @@ func CreateService(c *fiber.Ctx) error {
 		return c.Status(500).SendString(err.Error())
 	}
 
-	_, err := db.Exec("INSERT INTO services (name, description, price) VALUES (?, ?, ?)", service.Name, service.Description, service.Price)
+	var lastID int
+	err := db.QueryRow("SELECT MAX(id) FROM services").Scan(&lastID)
 	if err != nil {
-		return c.Status(500).SendString("Error creating new service")
+		lastID = 0
 	}
+
+	_, err = db.Exec("INSERT INTO services (id, name, description, price) VALUES (?, ?, ?, ?)", lastID+1, service.Name, service.Description, service.Price)
+	if err != nil {
+		return c.Status(500).SendString("Error creating service")
+	}
+
 	database.CloseDB(db)
 	c.Set("Content-Type", "application/json")
 

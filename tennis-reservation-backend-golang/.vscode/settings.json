@@ -8,7 +8,7 @@
             "server": "localhost",
             "port": 3306,
             "driver": "MariaDB",
-            "name": "tennis_reservation",
+            "name": "Databases",
             "database": "tennis_reservation",
             "username": "octopus",
             "askForPassword": true

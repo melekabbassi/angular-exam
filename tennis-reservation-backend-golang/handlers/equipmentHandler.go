@@ -70,9 +70,15 @@ func CreateEquipment(c *fiber.Ctx) error {
 		return c.Status(500).SendString(err.Error())
 	}
 
-	_, err := db.Exec("INSERT INTO equipments (type, is_available, price) VALUES (?, ?, ?)", equipment.Type, equipment.IsAvailable, equipment.Price)
+	var lastID int
+	err := db.QueryRow("SELECT MAX(id) FROM equipments").Scan(&lastID)
 	if err != nil {
-		return c.Status(500).SendString(err.Error())
+		lastID = 0
+	}
+
+	_, err = db.Exec("INSERT INTO equipments VALUES (?, ?, ?, ?)", lastID+1, equipment.Type, equipment.IsAvailable, equipment.Price)
+	if err != nil {
+		return c.Status(500).SendString("Error while creating equipment")
 	}
 	database.CloseDB(db)
 	c.Set("Content-Type", "application/json")

@@ -68,9 +68,15 @@ func CreateCourt(c *fiber.Ctx) error {
 		return c.Status(500).SendString(err.Error())
 	}
 
-	_, err := db.Exec("INSERT INTO courts (is_available) VALUES (?)", court.IsAvailable)
+	var lastID int
+	err := db.QueryRow("SELECT MAX(id) FROM courts").Scan(&lastID)
 	if err != nil {
-		return c.Status(500).SendString(err.Error())
+		lastID = 0
+	}
+
+	_, err = db.Exec("INSERT INTO courts VALUES (?, ?)", lastID+1, court.IsAvailable)
+	if err != nil {
+		return c.Status(500).SendString("Error while creating court")
 	}
 	database.CloseDB(db)
 	c.Set("Content-Type", "application/json")

@@ -71,5 +71,12 @@ func generateApp() *fiber.App {
 	serviceGroup.Put("/:id", handlers.UpdateService)
 	serviceGroup.Delete("/:id", handlers.DeleteService)
 
+	reservationGroup := app.Group("/reservations")
+	reservationGroup.Get("/", handlers.GetReservations)
+	reservationGroup.Get("/:id", handlers.GetReservation)
+	reservationGroup.Post("/", handlers.CreateReservation)
+	reservationGroup.Put("/:id", handlers.UpdateReservation)
+	reservationGroup.Delete("/:id", handlers.DeleteReservation)
+
 	return app
 }
